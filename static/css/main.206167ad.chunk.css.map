@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAIA,UACE,WAAY,CACZ,aACF,CAEA,cACE,YACF","file":"main.206167ad.chunk.css","sourcesContent":[".App {\r\n\r\n}\r\n\r\n.todoList {\r\n  width: 500px;\r\n  margin: 0 auto;\r\n}\r\n\r\n.todoList > div {\r\n  padding: 10px;\r\n}\r\n\r\n.todoList-task {\r\n\r\n}"]}
