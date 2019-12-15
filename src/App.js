@@ -1,18 +1,12 @@
 import React from 'react';
-import TodoListHeader from "./Todo/TodoListHeader";
-import TodoListTasks from "./Todo/TodoListTasks";
-import TodoListFooter from './Todo/TodoListFooter';
 import './App.css';
+import TodoList from "./Todo/TodoList";
 
 class App extends React.Component {
     render = () => {
         return (
             <div className="App">
-                <div className="todoList">
-                    <TodoListHeader/>
-                    <TodoListTasks />
-                    <TodoListFooter />
-                </div>
+                <TodoList TodoList={this.props.store.getState().TodoList}/>
             </div>
         );
     }
