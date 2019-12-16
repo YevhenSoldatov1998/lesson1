@@ -1,9 +1,8 @@
 import React from 'react'
 const TodoListTask = (props)=>{
-    debugger
     return (
         <React.Fragment>
-            {props.tasks.map( el => {
+            {props.state.map( el => {
                 return (
                     <div key={el.id} className="todoList-task">
                         <input type="checkbox" defaultChecked={el.isDone}/>
@@ -13,7 +12,6 @@ const TodoListTask = (props)=>{
                 )
             })}
         </React.Fragment>
-
     )
 }
 export default TodoListTask

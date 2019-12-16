@@ -2,13 +2,18 @@ import React from 'react'
 import TodoListHeader from "./TodoListHeader/TodoListHeader";
 import TodoListTasks from "./TodoListTasks/TodoListTasks";
 import TodoListFooter from "./TodoListFooter/TodoListFooter";
-const TodoList = (props) =>{
-    return(
-        <div className="todoList">
-            <TodoListHeader/>
-            <TodoListTasks TodoListTasks = {props.TodoList.TodoListTasks} />
-            <TodoListFooter filterValue = {props.TodoList.TodoListFooter.filter.filterValue}/>
-        </div>
-    )
+class TodoList extends React.Component{
+
+    render() {
+        return(
+            <div className="todoList">
+                <TodoListHeader value ={this.props.state.value} taskText={this.props.taskText} addTask={this.props.addTask}/>
+                <TodoListTasks  state = {this.props.state.tasks} />
+                <TodoListFooter  filterValue = "All"/>
+            </div>
+        )
+    }
+
+
 }
 export default TodoList
