@@ -4,7 +4,7 @@ import TodoListTask from "./TodoListTask/TodoListTask";
 const TodoListHeader = (props) => {
     return (
         <div className="todoList-tasks">
-            <TodoListTask state={props.state}/>
+            <TodoListTask changeIsDone={props.changeIsDone} state={props.state}/>
         </div>
     )
 }

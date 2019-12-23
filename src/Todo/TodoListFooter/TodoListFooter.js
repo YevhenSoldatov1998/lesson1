@@ -7,9 +7,9 @@ const TodoListHeader = (props) => {
     let classForActive = props.filterValue === "Active" ? "filterActive" : "";
     return (
         <div className="todoListFooter">
-            <button className={classForAll}>All</button>
-            <button className={classForCompleted}>Completed</button>
-            <button className={classForActive}>Active</button>
+            <button onClick={()=> props.changeFilterValue('All')}className={classForAll}>All</button>
+            <button onClick={()=> props.changeFilterValue('Completed')}className={classForCompleted}>Completed</button>
+            <button onClick={()=> props.changeFilterValue('Active')}className={classForActive}>Active</button>
         </div>
     )
 }
