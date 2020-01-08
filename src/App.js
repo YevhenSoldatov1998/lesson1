@@ -18,8 +18,10 @@ class App extends React.Component {
     }
 
     addTask = () => {
+        let {id, title, isDone, priority} = this.state.tasks;
+        let lastId = this.state.tasks[this.state.tasks.length-1].id + 1;
         let obj = {
-            id: 2,
+            id: lastId,
             title: this.state.value,
             isDone: false,
             priority: 'low'
@@ -42,10 +44,10 @@ class App extends React.Component {
             filterValue: filterText
         })
     }
-    changeIsDone = (task , isDone) => {
+    changeIsTask = (taskId , obj) => {
         let newTasks = this.state.tasks.map( t =>{
-            if(t === task){
-               return {...t, isDone: !isDone}
+            if(t.id === taskId){
+                return {...t, ...obj}
             }
             else{
                 return t
@@ -55,6 +57,13 @@ class App extends React.Component {
             tasks: newTasks
         })
     }
+    changeIsDone = (taskId , isDone) => {
+        this.changeIsTask(taskId , {isDone: !isDone})
+    }
+    changeIsTitle = (taskId , title) => {
+        this.changeIsTask(taskId , {title})
+    }
+
     render = () => {
         return (
             <div className="App">
@@ -62,6 +71,7 @@ class App extends React.Component {
                           addTask={this.addTask}
                           changeFilterValue = {this.changeFilterValue}
                           changeIsDone ={this.changeIsDone}
+                          changeIsTitle = {this.changeIsTitle}
                           state={this.state}
                 />
             </div>

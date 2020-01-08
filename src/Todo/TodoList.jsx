@@ -11,6 +11,7 @@ class TodoList extends React.Component {
                 <TodoListHeader value={this.props.state.value} taskText={this.props.taskText}
                                 addTask={this.props.addTask}/>
                 <TodoListTasks changeIsDone={this.props.changeIsDone}
+                               changeIsTitle ={this.props.changeIsTitle}
                                state={this.props.state.tasks.filter(t => {
                     switch (this.props.state.filterValue) {
                         case "All":
