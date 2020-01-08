@@ -1,19 +1,43 @@
 import React from 'react'
 
-const TodoListHeader = (props) => {
-    const inputText = (e) => {
-        let text = e.target.value;
-        props.taskText(text)
+class TodoListHeader extends React.Component {
+    state ={
+        error: false
     }
-    return (
-        <div className="todoList-header">
-            <h3 className="todoList-header__title">What to Learn</h3>
-            <div className="todoList-newTaskForm">
-                <input type="text" value={props.value} onChange={inputText.bind(this)} placeholder="New task name"/>
-                <button onClick={() => props.addTask()}>Add</button>
+    inputText = (e) => {
+        let text = e.target.value;
+        this.props.taskText(text)
+        this.setState({
+            error: false
+        })
+    }
+    callAddTask = () => {
+        this.props.addTask()
+        if(!this.props.value){
+            this.setState({
+                error: true
+            })
+
+        }
+        else {
+            this.setState({
+                error: false
+            })
+        }
+
+    }
+
+    render = () => {
+        return (
+            <div className="todoList-header">
+                <h3 className="todoList-header__title">What to Learn</h3>
+                <div className="todoList-newTaskForm">
+                    <input type="text" className={this.state.error ? 'error' : ''} value={this.props.value} onChange={this.inputText.bind(this)} placeholder="New task name"/>
+                    <button onClick={this.callAddTask.bind(this)}>Add</button>
+                </div>
             </div>
-        </div>
-    )
+        )
+}
 }
 
 export default TodoListHeader

@@ -6,11 +6,13 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tasks:[ {id: 1, title: "CSS", isDone: false, priority: 'low'},
+            tasks:[
+                {id: 1, title: "CSS", isDone: false, priority: 'low'},
                 {id: 2, title: "JS", isDone: false, priority: 'height'},
                 {id: 3, title: "ReactJS", isDone: true, priority: 'low'},
-                {id: 4, title: "JS", isDone: false, priority: 'low'},],
-            value: 'null',
+                {id: 4, title: "JS", isDone: false, priority: 'low'},
+            ],
+            value: '',
             filterValue: 'All'
         }
     }
@@ -20,12 +22,15 @@ class App extends React.Component {
             id: 2,
             title: this.state.value,
             isDone: false,
-            priority: 'ds'
+            priority: 'low'
         }
-        this.setState({
-            tasks: [...this.state.tasks, obj],
-            value: ''
-        })
+        if(this.state.value){
+            this.setState({
+                tasks: [...this.state.tasks, obj],
+                value: ''
+            })
+        }
+
     }
     taskText = (text) => {
         this.setState({
